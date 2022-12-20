@@ -1,0 +1,8 @@
+/* Estilo para Telas Retrato */
+
+@charset "UTF-8";
+
+body{
+    background-image: url(../images/cev-portrait.jpg);
+    background-position: center bottom;
+}
