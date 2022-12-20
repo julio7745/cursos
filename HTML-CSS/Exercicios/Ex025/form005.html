@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario 005</title>
+</head>
+<body>
+    <h1>Exemplo de formulario</h1>
+    <form action="cadastro.html" method="get" style="background-color: lightblue; padding: 20px;">
+        <fieldset>
+            <legend>Sexo</legend>
+            <input type="radio" name="Sexo" id="M" value="M" checked><label for="M" >Masculino</label>
+            <input type="radio" name="Sexo" id="F" value="F"><label for="F">Feminino</label>
+        </fieldset>
+        <fieldset>
+            <legend>Esportes Favoritos</legend>
+            <p>
+                <input type="checkbox" name="fut" id="ifut"><label for="ifut">Futebool</label><br>
+                <input type="checkbox" name="vol" id="ivol"><label for="ivol">Volei</label><br>
+                <input type="checkbox" name="ten" id="iten"><label for="iten">Tenis</label><br>
+                <input type="checkbox" name="pin" id="ipin"><label for="ipin">PinPong</label><br>
+                <input type="checkbox" name="nat" id="inat"><label for="inat">Natação</label><br>
+            </p>
+        </fieldset>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+</body>
+</html>

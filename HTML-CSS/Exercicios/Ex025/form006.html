@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <h1>Formularios</h1>
+    <form style="background-color: lightblue; padding: 20px;" action="cadastro.html" method="post">
+        <p>
+            <label for="icor">COR: </label><input type="color" name="cor" id="icor">
+        </p>
+        <p>
+            <label for="isat">NIVEL DE SATISFARÇÃO; </label>
+            <input type="range" name="sat" id="isat" min="0" max="3" value="0">
+        </p>
+        <P>
+            <label for="ifoto">FOTO DE PERFIL: </label>
+            <input type="file" name="foto" id="ifoto">
+        </P>
+        <P>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </P>
+    </form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 010</title>
+    <link rel="shortcut icon" href="icoif.ico">
+    <style>
+        body{
+            background-color: rgb(49, 104, 57);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Links</h1><hr>
+    <ul>
+        <li>
+            <h2>Link externo</h2>
+            <p>Aqui, temos o link do ava: <br>
+            <a href="https://ava.betim.ifmg.edu.br/moodle/">Ava Betim</a> <br> <br>
+            href="#" = link vazio
+            </p>
+            <p>Podemos mudar o target para <strong>_parent</strong> ou <strong>_blank</strong>.<br>
+                <ul>
+                    <li>_self: (mesma guia)<br>
+                        <a target="_self" href="https://web.whatsapp.com/">whatsapp</a>
+                    </li><br>
+                    <li>_blank:  (nova guia)<br>
+                        <a target="_blank" href="https://web.whatsapp.com/">whatsapp</a>
+                    </li><br>
+                </ul>
+            </p>
+            <p>Use também o rel="external" para dizer ao navegador que o link é externo, quando target = _blank<br>
+                <ul>
+                    <li>_blank: (mesma guia)<br>
+                        <a target="_blank" rel="external" href="https://web.whatsapp.com/">whatsapp</a>
+                    </li><br>
+                </ul>
+            </p>
+        </li>
+        <li>
+            <h2>Link Interno</h2>
+            <ul>
+                <li><a href="pag002.html">Segunda pagina</a></li>
+                <li><a href="paginas/pag003.html">Terceira pagina</a></li>
+            </ul>
+        </li>
+        <li>
+            <h2>Link com dowload</h2>
+            <p>Para dowload, configuramos os parametros dowload="caminho do arquivo" e type="tipo de arquivo". <br>
+            O type serve para dizer o tipo de arquivo ao navegador, visto que, alguns só irão <br>
+            fazer o dowload se o tipo de arquivo for especificado e o arquivo realmente for <br>
+            do tipo mencionado, isso ocorre por segurança. <br>
+            A lista de tipo pode ser pesquisa na internet. <br>  
+                <ul>
+                    <li><a download="pdfs/PCB PETA.pdf" target="_blank" type="application/pdf" href="pdfs/PCB PETA.pdf">PCB-Peta</a></li>
+                    <li><a download="pdfs/ifmg-vertical-full.png" target="_blank" type="application/png" href="pdfs/ifmg-vertical-full.png">ifmg-vertical</a></li>
+                </ul>
+            </p>
+        </li>
+    </ul>
+</body>
+</html>

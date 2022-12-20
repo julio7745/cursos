@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 011</title>
+    <link rel="shortcut icon" href="icoif.ico">
+    <style>
+        body{
+            background-color: rgb(106, 134, 110);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagem dinamica / Audio</h1>
+    <p>Abra esse site em varios dispositivos, ou ao menos, altere o tamanho do seu navegador!    </p><hr>
+    <picture>
+        <source media="(min-width: 1025px)" srcset="imagens/foto-g.png" >
+        <source media="(min-width: 725px)" srcset="imagens/foto-m.png" >
+        <img src="imagens/foto-p.png" alt="p">
+    </picture>
+    <h2>Reproduzindo Audio</h2>
+    <audio src="midia/efeito sonoro de erro.mp3" controls preload="metadata"></audio><br>
+    <audio controls preload="metadata">
+        <source src="midia/efeito sonoro de erro.mp3" type="audio/mpeg">
+        <source src="midia/efeito sonoro de erro.ogg" type="audio/ogg">
+    </audio>
+</body>
+</html>

@@ -1,0 +1,35 @@
+@charset "UTF-8";
+h1#principal{
+    text-shadow: 3px 3px 1px black;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.titulos{
+    background-color: white;
+    border-radius: 10px;
+    color: purple;
+    padding: 10px;
+    margin-top: 50px;
+    text-shadow: 1px 1px 2px rgb(90, 0, 90);
+}
+.subtitulos{
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 50px;
+    text-shadow: 1px 1px 1px black;
+}
+p{
+    margin-left: 30px;
+}
+.basico{
+    color: rgb(218, 4, 4);
+}
+.intermediario{
+    color: rgb(190, 190, 1);
+}
+.avancado{
+    color: green;
+}
