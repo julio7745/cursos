@@ -47,7 +47,17 @@ div{
     width: 100%;
 }
 #formulario{
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+#alinhamento{
     padding: 10px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
 }
 #formulario h1{
     text-align: center;
