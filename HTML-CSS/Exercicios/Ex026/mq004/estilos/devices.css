@@ -1,13 +1,54 @@
 @charset "UTF-8";
 
-/* Versão de tablet */
-
 /* Versão de impressão */
 @media print {
-
+    body{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    main{
+        border: 1px solid black;
+    }
+    main h1{
+        text-shadow: none;
+        color: black;
+    }
+    #phone{
+        display: none;
+    }
+    #print{
+        display: block;
+    }
 }
-
-/* Versão de pc*/
-
-/* Versão de tv*/
-
+@media screen and (min-width: 481px) and (max-width: 1000px) { /*tablet*/
+    body{
+        background-image: url(../imagens/back-tablet.jpg);
+    }
+    #phone{
+        display: none;
+    }
+    #tablet{
+        display: block;
+    }
+}
+@media screen and (min-width: 1001px) and (max-width: 1200px) { /*pc*/
+    body{
+        background-image: url(../imagens/back-pc.jpg);
+    }
+    #phone{
+        display: none;
+    }
+    #pc{
+        display: block;
+    }
+}
+@media screen and (min-width: 1201px) {                  /*tv*/          
+    body{
+        background-image: url(../imagens/back-tv.jpg);
+    }
+    #phone{
+        display: none;
+    }
+    #tv{
+        display: block;
+    }
+}
