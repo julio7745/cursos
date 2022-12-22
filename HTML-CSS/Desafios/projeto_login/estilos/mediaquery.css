@@ -26,12 +26,12 @@
         width: 990px;
     }
     #img{
-        float: left;
+        float: right;
         width: 40%;
         height: 100%;
     }
     #form{
-        float: right;
+        float: left;
         width: 60%;
         height: 100%;
     }
