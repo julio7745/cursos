@@ -12,16 +12,17 @@
         width: 30%;
         height: 100%;
     }
-    #form{
+    #formulario{
+        position: relative;
         float: right;
         width: 70%;
         height: 100%;
     }
-    #form h1{
+    #formulario h1{
         font-size: 1.8em;
     }
     
-    #form p{
+    #formulario p{
         font-size: 1.1em;
     }
 }
@@ -37,15 +38,15 @@
         width: 40%;
         height: 100%;
     }
-    #form{
+    #formulario{
         float: left;
         width: 60%;
         height: 100%;
     }
-    #form h1{
+    #formulario h1{
         font-size: 2em;
     }
-    #form p{
+    #formulario p{
         font-size: 1.2em;
     }
     
