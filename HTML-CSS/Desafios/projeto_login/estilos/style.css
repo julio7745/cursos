@@ -18,6 +18,9 @@ body,html{
     width: 100vw;
     min-width: 273px;
 }
+body{
+    background-image: linear-gradient(to top, #804fa1, #484b6d);
+}
 main{
     position: relative;
     height: 100vh;
