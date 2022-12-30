@@ -2,7 +2,8 @@ function carregar(){
     var msg = window.document.querySelector('#msg');
     var img= window.document.querySelector('#img');
     var hora = new Date().getHours();
-    msg.innerHTML = `<p>Agora são ${hora} horas!</p>`;
+    var minuto = new Date().getMinutes(); 
+    msg.innerHTML = `<p>Agora são ${hora} horas e ${minuto} minutos!</p>`;
     if (hora < 12){
         img.src=('imagens/manha.jpg')
         window.document.body.style.background = '#e2cd9f'
