@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        main div{
+            padding: 10px;
+            border: 1px solid black;
+            display: block;
+            margin: 10px;
+        }
+        p{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Primeiros estudos de DON</h1>
+        <p>Por tag 1</p>
+        <p>Por tag 2</p>
+        <p id="r">Por id</p>
+        <p class="s">Por class 1</p>
+        <p class="s">Por class 2</p>
+        <p name="par">Por name</p>
+        <p id="t">Por seletor (igual css)</p>
+        <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+        <div>Clique aqui</div>
+        <h1>Copias</h1>
+    </main>
+    <script>
+        window.document.write(`${window.document.getElementsByTagName('p')[1].innerText} <br>`)
+        window.document.write(`${window.document.getElementById('r').innerText} <br>`)
+        window.document.write(`${window.document.getElementsByClassName('s')[1].innerText} <br>`)
+        window.document.write(`${window.document.getElementsByName('par')[0].innerText} <br>`)
+        window.document.write(`${window.document.querySelector('#t').innerText} <br>`)
+        window.document.getElementsByTagName('h1')[0].style.color = "blue"
+        window.document.getElementsByTagName('div')[0].innerText= 'Mudamos o texto por JavaScript'
+    </script>
+</body>
+</html>

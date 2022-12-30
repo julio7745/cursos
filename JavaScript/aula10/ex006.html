@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt--br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+    <style>
+        #area{
+            font: normal 1.3em arial;
+            background-color: green;
+            color: white;
+            width: 200px;
+            height: 150px;
+            text-align: center;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="area" >Bota o mouse em mim...</div>
+    <!--
+        onclick="clicar()" onmouseenter="entrou()" onmouseout="saiu()
+    "-->
+    <script>
+        //  chama a div area uma vez só
+        var a = window.document.querySelector('#area')
+        
+        //configura ações e funções que cada uma dispara 
+        a.addEventListener('mouseenter', entrou)
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseout', saiu)
+
+        //funções
+        function entrou(){
+            a.style.background = 'red'
+            a.innerHTML='agora clica ai pow, mas n tira o mouse de cima ainda ...'
+        }
+        function clicar(){
+            a.style.background = 'blue'
+            a.innerHTML='tira o mouse agora parceiro'
+        }
+        function saiu(){
+            a.style.background = 'green'
+            a.innerHTML='Bota o mouse em mim...'
+        }
+        
+    </script>
+</body>
+</html>
