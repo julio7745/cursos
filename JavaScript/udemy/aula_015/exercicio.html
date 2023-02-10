@@ -12,7 +12,7 @@
         document.body.innerHTML += `
             <h1> Seu numero é ${numero}</h1>
             <p>
-                ${numero} é <strong>NaN</strong>: <strong>${isNaN(numero)}</strong><br>
+                ${numero} é <strong>NaN</strong>: <strong>${Number.isNaN(numero)}</strong><br>
                 <strong>Raiz quadrada</strong>: <strong>${numero ** (1/2)}</strong><br>
                 ${numero} é <strong>inteiro</strong>: <strong>${Number.isInteger(numero)}</strong><br>
                 <strong>Arredondado</strong> para <strong>baixo</strong>: <strong>${Math.floor(numero)}</strong><br>
