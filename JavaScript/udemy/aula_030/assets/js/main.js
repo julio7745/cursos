@@ -1,5 +1,5 @@
 
-const saida = window.document.getElementsByTagName('h1')[0]
+const saida = document.getElementsByTagName('h1')[0]
 const dataAtual = formataDataAtual(new Date());
 
 saida.innerText = dataAtual;
