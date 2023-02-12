@@ -2,10 +2,10 @@ let varA = 'A';
 let varB = 'B';
 let varC = 'C';
 
-const varAbackup = varB
+/*const varAbackup = varB
 varB = varC
 varC = varA
-varA = varAbackup
+varA = varAbackup*/
 
 // ou
 
