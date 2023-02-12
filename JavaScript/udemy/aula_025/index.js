@@ -1,2 +1,1 @@
-const numero = 10; 
 
