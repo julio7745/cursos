@@ -1,19 +1,14 @@
-//while
-let i = 0
-while(i <= 10){
-    console.log(i);
-    i++;
-} 
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-function randon(min, max) {
-    const aleatorio = Math.random() * ((max+1) - min) + min;
-    return Math.floor(aleatorio);
+for (let numero of numeros){
+
+    if(numero === 2){
+        continue;
+    }
+
+    if(numero === 7){
+        break;
+    }
+
+    console.log(numero);
 }
-let cont = 0;
-let numAleatorio;
-while(numAleatorio !== 50){
-    numAleatorio = randon(1, 50);
-    console.log(numAleatorio);
-    cont++
-}
-console.log("----- " + cont + " -----");
