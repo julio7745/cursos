@@ -1,21 +1,9 @@
-const frutas = ['pera', 'maça', 'uva'];
+const nomes = ['Julio Carvalho', 'renato', 'lucas']
 
-for (let i = 0; i < frutas.length; i++){
-    console.log(frutas[i]);
-}console.log();
+for (let  i in nomes){
+    console.log(nomes[i]);
+}console.log('--------------------------------');
 
-for (let i in frutas){
-    console.log(frutas[i]);
-}console.log();
-
-const pessoa = {
-    nome:'Julio',
-    sobrenome: 'Carvalho',
-    idade: '18'
-}
-for (let i in pessoa){
+for (let i of nomes){
     console.log(i);
 }
-for (let i in pessoa){
-    console.log(pessoa[i]);
-}console.log();
