@@ -1,19 +1,7 @@
 function criaCalc() {
     return{
         display: document.querySelector('#display'),
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        get inicia() {
+            get inicia() {
             this.cliqueBotoes()
             this.enter()
         },
@@ -43,6 +31,7 @@ function criaCalc() {
         },
         btParaDisplay(bt){
             this.display.value += bt
+            this.display.focus();
         },
         limpaDisplay(){
             this.display.value = ''
