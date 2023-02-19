@@ -1,18 +1,31 @@
 
-function Pessoa(nome, sobrenome, idade){
-    this.nome = nome;
-    this.sobrenome = sobrenome;
-    this.idade = idade;
+function Produto(){
+
+    Object.defineProperties(this,  {
+        nome: {
+            enumerable: true,
+            value: 'Camiseta',
+            writable: false,
+            configurable: false
+        },
+        preco: {
+            enumerable: true,
+            value: 20,
+            writable: false,
+            configurable: false
+        }, 
+        estoque: {
+            enumerable: false,
+            value: 80,
+            writable: false,
+            configurable: false
+        }, 
+    })
 }
-const eu = new Pessoa('julio', 'carvalho', 18)
-Object.defineProperty(eu, 'nome', {writable: 0, configurable: 0})
-eu.nome = 'lio'
-console.log(eu);
 
-
-const vc = new Pessoa('julio', 'carvalho', 18)
-Object.defineProperties(vc, { nome:{ writable: 0 }, sobrenome:{ writable: 0 } })
-vc.nome = '1'
-vc.sobrenome = 'a'
-console.log(vc);
+const prod1 = new Produto()
+console.log(prod1);
+console.log(prod1.estoque);
+prod1.estoque = 40
+console.log(prod1.estoque);
 
