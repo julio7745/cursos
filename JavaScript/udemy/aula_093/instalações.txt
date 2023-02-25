@@ -1,0 +1,11 @@
+npm i --save-dev @babel/core @babel/preset-env @babel/cli babel-loader webpack webpack-cli regenerator-runtime core-js@2
+
+
+
+
+npm i = npm install
+    --> esse comando instala as ferramentas que vem a seguir dele 
+    --> se digitar apenas ele
+        --> se ouver o arquivo package.json, ele ira instalar as ferramentas contidas nele 
+    --> as ferramentas serão instaladas na pasta aberta
+        --> elas só funcionarão nos arquivos da pasta 

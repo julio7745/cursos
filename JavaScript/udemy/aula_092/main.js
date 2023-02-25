@@ -1,0 +1,1 @@
+//babel traduzir para js mais antigo
