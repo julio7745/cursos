@@ -6,7 +6,7 @@ export default class ValidarCPF{
             configurable: false,
             //enumerable: false
         });
-    }
+    };
     valida(){
         if(!this.cpfLimpo) return false
         if(typeof this.cpfLimpo !== 'string') return false
@@ -15,7 +15,7 @@ export default class ValidarCPF{
         const novoCpf = this.geraNovoCpf()
         if (this.cpfLimpo === novoCpf) return true
         return false
-    }
+    };
     geraNovoCpf(){
 
         const cpfSemDigitos = this.cpfLimpo.slice(0, -2)
@@ -23,7 +23,7 @@ export default class ValidarCPF{
         const digito2 = this.geraDigito(cpfSemDigitos + digito1)
         const novoCpf = cpfSemDigitos+digito1+digito2
         return novoCpf
-    }
+    };
     geraDigito(cpfSemDigitos){
         let total = 0
         let contador = cpfSemDigitos.length + 1
@@ -34,7 +34,5 @@ export default class ValidarCPF{
 
         total = 11 - (total % 11)
         return total > 9 ? '0' : total
-    }
+    };
 }
-
-console.log('ok');

@@ -1,7 +1,5 @@
-import './assets/css/style.css';
-import GeraCPF from './modules/GeraCPF'
 
-
+import GeraCPF from './GeraCPF.js'
 
 (function () {
     const gera = new GeraCPF()
