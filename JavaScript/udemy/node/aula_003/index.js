@@ -1,0 +1,1 @@
+// aula sobre configuração de npn e outros
