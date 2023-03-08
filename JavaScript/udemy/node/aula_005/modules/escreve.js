@@ -10,7 +10,7 @@ fs.writeFileSync(camihoArquivo, 'oi do a2\n', { flag: 'a' })
 const eu = [
     {
         nome: 'julio', 
-        sobrenome
+        sobrenome: 'carvalho'
     },
     {
         nome: 'julio', 
