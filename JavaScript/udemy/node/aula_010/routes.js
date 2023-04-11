@@ -5,8 +5,8 @@ const express = require('express')
 const route = express.Router();
 
 //importanto funções de cada requerimento
-const homeController = require('./controllers/homeController.js')
-const contatoController = require('./controllers/contatoController.js')
+const homeController = require('./src/controllers/homeController.js')
+const contatoController = require('./src/controllers/contatoController.js')
 
 //Declarando rotas
 

@@ -3,12 +3,7 @@
 
 //Get
 module.exports.paginaInicialGet = (req, res) => {
-    res.send(`
-        <form action="/" method="POST">
-            Nome: <input type="text" name="Nome">  
-            <input type="submit">
-        </form>
-    `)
+    res.render('index.ejs');
 }
 
 //Post
