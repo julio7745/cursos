@@ -8,7 +8,7 @@ const app = express();
 // metodo da requisição 
 
 app.get('/', (req, res) => {
-    res.send('<h1> hello <\h1>')
+    res.send('<h1>Deu certo<\h1>')
 })
 app.get('/contato', (req, res) => {
     res.send('Obrigado pelo contato')
@@ -16,6 +16,6 @@ app.get('/contato', (req, res) => {
 
 
 app.listen(3000, () => {
-    console.log('Acessar http://localhost:3000');
     console.log('Servidor executando');
+    console.log('Acessar http://localhost:3000');
 })
