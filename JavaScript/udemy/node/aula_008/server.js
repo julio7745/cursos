@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express();
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
     res.send(`
@@ -10,8 +11,6 @@ app.get('/', (req, res) => {
     </form>
     `)
 })
-
-app.use(express.urlencoded({extended: true}))
 
 /*
 app.get('/testes/:mensagem?', (req, res) => {
