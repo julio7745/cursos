@@ -1,30 +1,33 @@
-//importando bibliotecas e configurando 
 const express = require('express')
 const app = express();
 
-app.use(express.urlencoded({extended: true})); // --> Podemos usar form. com POST
+require('dotenv').config()
 
-//importando missleware blogal -> função a ser executada em toda requisição
-const middlewareBlogal = require('./src/middlewares/middleware.js')
+//importando modulo de base de dados
+const mongoose = require('mongoose')
 
-//declaramos as paginas que serão renderizadas e o renderizador 
-app.set('views', './src/views');
+//mandando conectar
+mongoose.connect(process.env.LOGIN, { useNewUrlParser: true, useUnifiedTopology: true })
+    //A função conect retorna uma processa, logo, quando ela for resolvida, emitimos uma mensagem
+    .then(() => {
+        console.log('conectou');
+        app.emit('pronto')
+    })
+    .catch(e => console.log(e))
+
+const routes = require('./routes.js')
+
+app.set('views', './src/views/');
 app.set('view engine', 'ejs');
 
-//declaramos o conteudo estatico 
 app.use(express.static('./public'))
 
-//usando middleware ANTES da rota
-app.use(middlewareBlogal.antes)
+app.use(routes) 
 
-//importando rotas
-const routes = require('./routes.js')
-app.use(routes) // --> Aqui estamos dizendo pro app usar as rotas importadas
-
-//usando middleware depois da rota
-app.use(middlewareBlogal.depois)
-
-//iniciando servidor 
-app.listen(3000, () => {
-    console.log(`Acessar http://localhost:3000`);
+//quando a mensagem for recebida
+app.on('pronto', () => {
+    //iniciamos o servidor
+    app.listen(3000, () => {
+        console.log(`Acessar http://localhost:3000`);
+    })
 })
