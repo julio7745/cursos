@@ -1,33 +1,10 @@
 exports.home = (req, res) => {
-    res.render('index.ejs');
+    res.render('index.ejs', {
+        titulo: 'Esse é o titulo da <span style="color:red">pagina 1</span>',
+        numeros: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    });
 }
 
-
-//Session
-exports.mandaSession = (req, res) => {
-    //Ao receber o requerimento, ele pode ter a sessão preenchida com dados no formato de objetos
-    req.session.usuario = {nome: 'Julio', logado: true}
+exports.home2 = (req, res) => {
     res.render('index.ejs');
 }
-exports.recebeSession = (req, res) => {
-    //aqui, estamos lendo a sessão
-    console.log(req.session.usuario)
-    res.render('index.ejs');
-}
-
-//FLASH
-exports.mandaFlash = (req, res) => {
-
-    req.flash('Nome do flash', 'mensagem do flash')
-    //estamos armazenando uma array chamada 'Nome do flash' no banco de dados, com uma string
-    res.render('index.ejs');
-
-}
-exports.usaFlash = (req, res) => {
-
-    console.log(req.flash('Nome do flash')); 
-    //estamos lendo o conteudo da array nome do flash
-
-    res.render('index.ejs');
-}
-

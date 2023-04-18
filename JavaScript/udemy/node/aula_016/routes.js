@@ -4,9 +4,6 @@ const route = express.Router();
 const homeController = require('./src/controllers/homeController.js')
 
 route.get('/', homeController.home)
-route.get('/mandaSession', homeController.mandaSession)
-route.get('/recebeSession', homeController.recebeSession)
-route.get('/mandaFlash', homeController.mandaFlash)
-route.get('/usaFlash', homeController.usaFlash)
+route.get('/2', homeController.home2)
 
 module.exports = route;
