@@ -8,8 +8,6 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('./public'))
 
-const middleware = require('./src/middlewares/global.js')
-app.use(middleware.global)
 app.use(routes) 
 
 app.listen(3000, () => {
