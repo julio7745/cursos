@@ -1,0 +1,1 @@
+exports.check404Error = (req, res) => res.render('pages/404.ejs')
