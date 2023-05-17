@@ -13,6 +13,7 @@ route.get('/home', homeController.index)
 //login
 const loginController = require('./src/controllers/loginController.js')
 route.get('/login', loginController.index)
+route.post('/login/register', loginController.register)
 
 //exporta respostas a cada rotas
 module.exports = route;
