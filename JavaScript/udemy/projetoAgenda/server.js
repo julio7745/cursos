@@ -23,15 +23,15 @@ const ConnectMongo = require('connect-mongo')(session)
 
 //criando configurações da sessão
 const sessionOptions = session({
-    //aleatório, tipo uma criptografia
-    secret: 'asdwedasd324',
+    //aleatório
+    secret: process.env.SECRET,
     //estamos armazenando no mongodb
     store: new ConnectMongo({ mongooseConnection: mongoose.connection }), 
     //outras configurações
     resave: false, 
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60,    //tempo que o dado vai ficar salvo em (ms) 
+        maxAge: 1000 * 60 * 10,    //tempo que o dado vai ficar salvo em (ms) 
         httpOnly: true
     }
 })

@@ -2,6 +2,9 @@
 //importamos mongoose, responsavel pelo banco de dados
 const mongoose = require('mongoose')
 
+//importamos mongoose, responsavel por fazer o hash da senha
+const bcryptjs = require('bcryptjs')
+
 //Configuramos um novo modelo de pagina no banco de dados
 const registerNewUser = new mongoose.Schema({
     email: {type: String, required: true},
@@ -9,7 +12,7 @@ const registerNewUser = new mongoose.Schema({
 })
 
 //criamos um novo tipo de pagina as as configurações criadas
-const newLoginModel = mongoose.model('login', registerNewUser)
+const loginModel = mongoose.model('login', registerNewUser)
 
 //importamos validator, responsavel pela validação do email
 const validator = require('validator')
@@ -28,12 +31,13 @@ class RegisterUser {
     async register(){
         this.validaDados()
         if(this.errors.length > 0) return
-        try{
-            this.user = await newLoginModel.create(this.body)
-        }catch(e) {
-            console.log(e)
-            this.errors.push(e)
-        }
+        
+        await this.userExist()
+        
+        if(this.errors.length > 0) return
+
+        this.quebraSenha()
+        this.user = await loginModel.create(this.body)
     }
 
     //metodos comuns a todos os usuarios ficam fora do constructor
@@ -59,6 +63,22 @@ class RegisterUser {
             email: this.body.email,
             senha: this.body.senha,
         }
+    }
+
+    //checa se o usuario ja existe
+    async userExist(){
+        const exist = await loginModel.findOne({email: this.body.email})
+        if(exist){
+            this.errors.push('Email ja cadastrado')
+        }
+    }
+
+    //faz p hash da senha
+    quebraSenha(){
+        //gera um valor aleatorio
+        const salt = bcryptjs.genSaltSync()
+        //gera uma senha quebrada unindo a senha e o salt
+        return this.body.senha = bcryptjs.hashSync(this.body.senha, salt)
     }
 }
 
