@@ -1,0 +1,32 @@
+-----------------------------------------------------
+
+AULA 03
+
+- = 		--> simboliza solicitação de calculo
+- + 		--> simboliza solicitação de soma
+
+- =A1+B1 	--> a celula recebe a soma das celulas A1 e B1
+
+-----------------------------------------------------
+
+AULA 04
+
+- Ao clicar duas vezes na divisa do nome da linha ou coluna, o tamanho ajusta automaticamente
+
+-----------------------------------------------------
+
+AULA 05
+
+- Podemos usar uma alsa para replicar o comando nas colunas / linhas posteriores
+		--> basta posicionar o mouse na alsa (parte inferior direita da celula)
+	    	    e puxar para todas que devem receber determinada formula
+
+-----------------------------------------------------
+
+AULA 06
+
+- Funções	--> função(intervalo de celulas)
+			- =SOMA(E4:E9) Somaa TODAS as celulas entre E4 e E9
+
+
+
