@@ -1,7 +1,5 @@
 -----------------------------------------------------
 
-AULA 03
-
 - = 		--> simboliza solicitação de calculo
 - + 		--> simboliza solicitação de soma
 
@@ -9,24 +7,51 @@ AULA 03
 
 -----------------------------------------------------
 
-AULA 04
-
 - Ao clicar duas vezes na divisa do nome da linha ou coluna, o tamanho ajusta automaticamente
 
 -----------------------------------------------------
 
-AULA 05
-
 - Podemos usar uma alsa para replicar o comando nas colunas / linhas posteriores
 		--> basta posicionar o mouse na alsa (parte inferior direita da celula)
 	    	    e puxar para todas que devem receber determinada formula
+		--> quando replicamos uma função, a mesma tbm altera as celulas utilizadas para fazer os calculos,
+		    para fixar uma celula que sera usada em todas as linhas/colunas, podemos usar a notação:
+		    $a$3 , pois, dessa forma fixamos a celula a3, em todas as replicas.
+		    (tbm podemos usar o f4 como atalho, basta colocar o cursor em cima da celula a ser fixada)
 
 -----------------------------------------------------
 
-AULA 06
+- Funções --> Podem ser aninhadas
 
-- Funções	--> função(intervalo de celulas)
-			- =SOMA(E4:E9) Somaa TODAS as celulas entre E4 e E9
+- =SOMA(celula1:celula2) 					
+Soma TODAS as celulas em um intervalo de celulas
+	EX:
+	=SOMA(E1:F4) --> soma todos valores entre E1 e f4
+
+
+- =SE(condição; resultado se verdadeiro; resultado se falso)				
+Estrutura condicional
+Se o resultado for um texto, usamos entre aspas duplas
+	EX:
+	=SE( E1>=2; "MAIOR QUE DOIS"; B3 ) --> Se E1 for maior ou igual a dois, recebe o texto,
+					       se não, recebe o valor de B3  	
+
+- =SEERRO(resultado se verdadeiro; resultado se falso)				
+Estrutura condicional de erro
+Tenta retornar o verdadeiro, se der erro, retorna o segundo
+	EX1:
+	A1 = 10 e A2 = 0
+	=SEERRO( A1/A2; "Divisão por 0") --> retorna "Divisão por 0"
+	EX2:
+	A1 = 10 e A2 = 2
+	=SEERRO( A1/A2; "Divisão por 0") --> retorna "5"
+
+
+- =MÉDIA(celula1:celula2)				
+Retorna a média entre todas as celulas no intervalo
+	EX:
+	=MÉDIA(B13:C13) --> Retorna a média de todas as celulas no intervalo entre B13 e C13	
+	
 
 
 
