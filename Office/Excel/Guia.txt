@@ -47,6 +47,21 @@ Tenta retornar o verdadeiro, se der erro, retorna o segundo
 	=SEERRO( A1/A2; "Divisão por 0") --> retorna "5"
 
 
+- E( condição1; condição2; condição3 )				
+Para usar varias verificações e todas precisam ser verdadeiras
+Semelhante ao and
+Muito util se usar com =SE(condição; resultado se verdadeiro; resultado se falso)
+	EX:
+	=SE( E(condição1; condição2; condição3) ; resultado se verdadeiro; resultado se falso)
+
+- OU( condição1; condição2; condição3 )				
+Para usar varias verificações e apenas uma precisa ser verdadeira
+Semelhante ao or
+Muito util se usar com =SE(condição; resultado se verdadeiro; resultado se falso)
+	EX:
+	=SE( OU(condição1; condição2; condição3) ; resultado se verdadeiro; resultado se falso)
+
+
 - =MÉDIA(celula1:celula2)				
 Retorna a média entre todas as celulas no intervalo
 	EX:
