@@ -29,6 +29,11 @@ Soma TODAS as celulas em um intervalo de celulas
 	=SOMA(E1:F4) --> soma todos valores entre E1 e f4
 
 
+- =SOMASE(celula1:celula2; conteudo; celula3:celula4)					
+se no intervalo de 'celula1:celula2' encontrar uma celula igual a 'conteudo',
+  soma a linha equivalente do termo no intervalo 'celula3:celula4'
+
+
 - =SE(condição; resultado se verdadeiro; resultado se falso)				
 Estrutura condicional
 Se o resultado for um texto, usamos entre aspas duplas
@@ -66,7 +71,36 @@ Muito util se usar com =SE(condição; resultado se verdadeiro; resultado se fal
 Retorna a média entre todas as celulas no intervalo
 	EX:
 	=MÉDIA(B13:C13) --> Retorna a média de todas as celulas no intervalo entre B13 e C13	
-	
 
+- =CONT.SE(celula1:celula2; conteudo)				
+Retorna a quantidade de celulas que tem exatamente o 'conteudo' no intervalo entre 'celula1' e 'celula2'
 
+- =ALEATÓRIOENTRE(valor1; valor2)
+Retorna um numero aleatório entre 'valor1' e 'valor2'
+'valor1' < 'valor2'
+Toda vez que algo na planilha mudar, esse valor irá sortear novamente
+
+-----------------------------------------------------
+
+MACROS - VBA
+
+-----------------------------------------------------
+
+- Criar funções: 
+	Sub alterar_locais()
+		...
+	End Sub 
+  ... Aqui, criamos uma função chamada 'alterar_locais'
+
+- Selecionar elementos da tabela: 
+	Range("a1")
+  ... Aqui, selecionamos a celula a1
+
+- Alterar atributos de uma elemento:
+	Range("a1").Value = "ESSE TEXTO VAI EM a1"
+  ... Aqui, atribuimos um valor a celula 'a1'
+
+- Fechar uma guia
+	Unload nomeDaGuia
+  ... Aqui, fechamos a guia 'nomeDaGuia'
 
