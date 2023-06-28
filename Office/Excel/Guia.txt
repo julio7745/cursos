@@ -92,15 +92,24 @@ MACROS - VBA
 	End Sub 
   ... Aqui, criamos uma função chamada 'alterar_locais'
 
-- Selecionar elementos da tabela: 
+- Escolher elementos da tabela: 
+	Range("a1").Select
+  ... Aqui, escolhemos a celula a1 e deixamos ela como selecionada
 	Range("a1")
-  ... Aqui, selecionamos a celula a1
+  ... Aqui, escolhemos a celula a1
 
-- Alterar atributos de uma elemento:
+- Alterar atributos de um elemento:
 	Range("a1").Value = "ESSE TEXTO VAI EM a1"
-  ... Aqui, atribuimos um valor a celula 'a1'
+  ... Aqui, atribuimos um valor a celula 'a1' se ela não 
+	Selection.Value = "ESSE TEXTO VAI EM Selection"
+  ... Aqui, atribuimos um valor a celula que esta selecionada
 
 - Fechar uma guia
 	Unload nomeDaGuia
   ... Aqui, fechamos a guia 'nomeDaGuia'
+
+-Abrir uma guia
+	nomeDaGuia.Show
+  ... Aqui, Abrimos a guia 'nomeDaGuia'
+
 
