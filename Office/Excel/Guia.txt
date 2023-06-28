@@ -85,6 +85,10 @@ Toda vez que algo na planilha mudar, esse valor irá sortear novamente
 MACROS - VBA
 
 -----------------------------------------------------
+- Comentarios:
+	' 
+  ... Apos uma aspas simples é um comentario
+
 
 - Criar funções: 
 	Sub alterar_locais()
@@ -92,11 +96,48 @@ MACROS - VBA
 	End Sub 
   ... Aqui, criamos uma função chamada 'alterar_locais'
 
+
+- If, else e and:
+ 	If 'condição1' And 'condição2' Then
+		'code'	
+ 	Else
+ 		'code'
+ 	End If
+  ... Exemplo de condição -->  txt_user.Text = "julio" 
+
+
 - Escolher elementos da tabela: 
-	Range("a1").Select
-  ... Aqui, escolhemos a celula a1 e deixamos ela como selecionada
 	Range("a1")
   ... Aqui, escolhemos a celula a1
+
+
+- Selecionar elementos de uma tabela:
+	Range("a1").Select
+  ... Aqui, escolhemos a celula a1 e deixamos ela como selecionada
+
+
+- Escolher uma tabela:
+	Sheets("Vendas").Activate
+  ... Aqui, escolhemos a tabela 'vendas' e deixamos ativado
+
+
+- Ativar elementos de uma tabela:
+	Range("a1").Activate
+  ... Aqui, escolhemos a celula a1 e deixamos ativado
+
+
+- Andar atravez das celulas:
+	Selection.Offset(x, y).Select
+  ... Aqui, a partir da celula selecionada, andamos 1 celula para baixo e y para a direita
+
+
+- Selecionar primeira linha não preenchida da tabela:
+	Range("B1048576").Select
+    	Selection.End(xlUp).Select
+    	Selection.Offset(1, 0).Select
+  ... Aqui, escolhemos a ultima celula da coluna b, subimos até achar uma preenchida,
+      e depois selecionamos abaixo dela
+
 
 - Alterar atributos de um elemento:
 	Range("a1").Value = "ESSE TEXTO VAI EM a1"
@@ -104,12 +145,30 @@ MACROS - VBA
 	Selection.Value = "ESSE TEXTO VAI EM Selection"
   ... Aqui, atribuimos um valor a celula que esta selecionada
 
-- Fechar uma guia
+
+- Fechar uma guia:
 	Unload nomeDaGuia
   ... Aqui, fechamos a guia 'nomeDaGuia'
 
--Abrir uma guia
+
+-Abrir uma guia:
 	nomeDaGuia.Show
   ... Aqui, Abrimos a guia 'nomeDaGuia'
+
+
+-Alterar visibilidade da janela do app:
+	Application.Visible = False or True
+  ... Pode ser aplicado por exemplo quando um a pasta de trabalho (arquivo) for aberta, dessa forma,
+      ocultando e exibindo uma tela de senha 
+
+
+-Adicionar opções na lista de item de um formulario:
+	nomeDaCaixa.AddItem("Opção")
+  ... Deve ser aplicado no Form, initialize --> sempre que o formulario for aberto 
+
+
+-Alterar ordem de selecão automatica de caixas dentro de um fomrulario:
+	Selecionamos o elemento pai, selecionamos Exibir, selecionamos Ordem de tabulação, configuramos
+
 
 
