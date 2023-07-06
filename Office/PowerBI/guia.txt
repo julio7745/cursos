@@ -1,0 +1,10 @@
+FUNÇÕES
+
+função('folha'[nomeDaColuna])
+
+sum = retorna soma dos valores da coluna
+averge = retorna media dos valores da coluna
+max = retorna maior valor da coluna 
+min = retorna menor valor da coluna
+cont = retorna quantidades de elementos da coluna
+distinctcount = retorna quantidades de elementos diferentes da coluna
