@@ -2,23 +2,23 @@
 //importamos mongoose, responsavel pelo banco de dados
 const mongoose = require('mongoose')
 
-//importamos mongoose, responsavel por fazer o hash da senha
+//importamos bcryptjs, responsavel por fazer o hash da senha
 const bcryptjs = require('bcryptjs')
 
 //Configuramos um novo modelo de pagina no banco de dados
-const registerNewUser = new mongoose.Schema({
+const User = new mongoose.Schema({
     email: {type: String, required: true},
     senha: {type: String, required: true}
 })
 
 //criamos um novo tipo de pagina as as configurações criadas
-const loginModel = mongoose.model('login', registerNewUser)
+const loginModel = mongoose.model('login', User)
 
 //importamos validator, responsavel pela validação do email
 const validator = require('validator')
 
 //criamos a classe RegisterUser
-class RegisterUser {
+class UserDates {
 
     //dados que serão retornados ficam dentro do constructor
     constructor(body){
@@ -40,6 +40,23 @@ class RegisterUser {
         this.user = await loginModel.create(this.body)
     }
 
+    //tenta registrar novo usuario
+    async login(){
+        this.validaDados()
+        if(this.errors.length > 0) return
+        
+        this.user = await loginModel.findOne({email: this.body.email})
+        if(!this.user ) {
+            this.errors.push('E-mail incorreto')
+            return
+        }
+
+        if(!bcryptjs.compareSync(this.body.senha,  this.user.senha)) {
+            this.errors.push('Senha incorreta')
+            return
+        }        
+    }
+
     //metodos comuns a todos os usuarios ficam fora do constructor
 
     //cria metodo de validar dados
@@ -47,7 +64,7 @@ class RegisterUser {
         //limpa chaves desnecessarias 
         this.cleanData()
         //valida email
-        if(!validator.isEmail(this.body.email)) this.errors.push('E-mail is invalid')
+        if(!validator.isEmail(this.body.email)) this.errors.push('E-mail invalido')
         //valida senha
         if(this.body.senha.length !== 8) this.errors.push('A senha precisa ter 8 caracteres')
     }
@@ -82,4 +99,4 @@ class RegisterUser {
     }
 }
 
-module.exports = RegisterUser
+module.exports = UserDates

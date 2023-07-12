@@ -57,6 +57,7 @@ app.use(express.static('./public'))
 
 //importa midllewares
 const midllewares = require('./src/middleware/middleware.js')
+
 //usa middlewares de antes
 app.use(midllewares.messages)
 
@@ -69,7 +70,7 @@ app.use(midllewares.check404Error)
 //quando a mensagem for recebida
 app.on('pronto', () => {
     //iniciamos o servidor
-    app.listen(3000, () => {
-        console.log(`Acessar http://localhost:3000`);
+    app.listen(3001, () => {
+        console.log(`Acessar http://localhost:3001/login`);
     })
 })
