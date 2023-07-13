@@ -1,5 +1,5 @@
 //importa validador de usuario
-const Login = require('../models/UserDates.js')
+const Login = require('../models/userDates.js')
 
 //exporta resposta para requerimento login/
 exports.index = (req, res) => {
@@ -17,15 +17,10 @@ exports.register = async (req, res) => {
         await usuario.register()
         if(usuario.errors.length > 0) {
             req.flash('errors', usuario.errors)
-            await req.session.save();
-            await req.session.save(function () {
-                return res.redirect('/login'); 
-            });
+            req.session.save( () => { return res.redirect('/login'); });
         }else{
             req.flash('sucess', 'Usuario cadastrado com sucesso')
-            await req.session.save(function () {
-                return res.redirect('/login'); 
-            });
+            req.session.save( () => { return res.redirect('/login'); });
         }
     }catch (e) {
         console.log(e);
@@ -45,15 +40,11 @@ exports.login = async (req, res) => {
 
         if(usuario.errors.length > 0) {
             req.flash('errors', usuario.errors)
-            await req.session.save(function () {
-                return res.redirect('/login'); 
-            });
+            req.session.save( () => { return res.redirect('/login'); });
         }else{
             req.flash('sucess', 'Usuario logado com sucesso')
             req.session.user = usuario.user;
-            await req.session.save(function () {
-                return res.redirect('/home'); 
-            });
+            req.session.save( () => { return res.redirect('/'); });
         }
     }catch (e) {
         console.log(e);

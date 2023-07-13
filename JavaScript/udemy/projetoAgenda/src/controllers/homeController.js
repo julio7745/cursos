@@ -1,5 +1,8 @@
+const contato = require("../models/contatoModel")
+
+
 //exporta resposta para requerimento /
-exports.index = (req, res) => {
-    if( !req.session.user ) return res.redirect('/login')
-    res.render('pages/index.ejs');
+exports.index = async(req, res) => {
+    const contatos = await contato.buscaTodos()
+    res.render('pages/index.ejs', {contatos} );
 }

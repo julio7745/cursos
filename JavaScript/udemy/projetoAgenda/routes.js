@@ -4,6 +4,9 @@ const express = require('express')
 //declara que o  modulo são rotas do express
 const route = express.Router();
 
+//importa midllewares
+const midllewares = require('./src/middleware/middleware.js')
+
 //ROTAS
 
 //login
@@ -18,5 +21,13 @@ const homeController = require('./src/controllers/homeController.js')
 route.get('/home', homeController.index)
 route.get('/', homeController.index)
 
-//exporta respostas a cada rotas
+// contatos
+const contatosController = require('./src/controllers/contatosController.js')
+route.get('/NewContato', contatosController.index)
+route.post('/NewContato/register', contatosController.register)
+route.get('/contato/:id', contatosController.visualise)
+route.get('/editcontato/:id', contatosController.edit)
+route.get('/excluirctt/:id', contatosController.delete)
+
+// exporta respostas a cada rotas
 module.exports = route;

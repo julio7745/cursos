@@ -31,7 +31,7 @@ const sessionOptions = session({
     resave: false, 
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 10,    //tempo que o dado vai ficar salvo em (ms) 
+        maxAge: 1000 * 60 * 5,    //tempo que o dado vai ficar salvo em (ms) 
         httpOnly: true
     }
 })
@@ -60,12 +60,13 @@ const midllewares = require('./src/middleware/middleware.js')
 
 //usa middlewares de antes
 app.use(midllewares.messages)
+app.use(midllewares.checklogin)
 
 //usa as rotas
 app.use(routes) 
 
 //usa middlewares de depois
-app.use(midllewares.check404Error)
+//app.use(midllewares.check404Error)
 
 //quando a mensagem for recebida
 app.on('pronto', () => {
