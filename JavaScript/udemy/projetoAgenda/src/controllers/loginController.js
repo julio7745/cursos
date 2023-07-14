@@ -3,6 +3,7 @@ const Login = require('../models/userDates.js')
 
 //exporta resposta para requerimento login/
 exports.index = (req, res) => {
+    
     //renderiza pagina de login
     if( req.session.user ) return res.redirect('/home')
     res.render('pages/login.ejs');
@@ -10,50 +11,70 @@ exports.index = (req, res) => {
 
 //exporta resposta para requerimento login/register
 exports.register = async (req, res) => {
-    try{
-        //cria novo objeto com a classe importada, enviamos o requerimento
-        const usuario = new Login(req.body)
-        //tenta registrar novo usuario
-        await usuario.register()
-        if(usuario.errors.length > 0) {
-            req.flash('errors', usuario.errors)
-            req.session.save( () => { return res.redirect('/login'); });
-        }else{
-            req.flash('sucess', 'Usuario cadastrado com sucesso')
-            req.session.save( () => { return res.redirect('/login'); });
-        }
-    }catch (e) {
-        console.log(e);
-        res.render('pages/404.ejs')
+    
+    //cria novo objeto com a classe importada, enviamos o requerimento
+    const usuario = new Login(req.body)
+
+    //registra novo usuario
+    await usuario.register()
+
+    //se houver algum erro
+    if(usuario.errors.length > 0) {
+
+        //emite msm de erro 
+        req.flash('errors', usuario.errors)
+
+        //e redireciona para login
+        req.session.save( () => { return res.redirect('/login'); });
+        return
     }
+
+    //caso contrario, foi criado com sucesso
+    //emitimos msn de sucesso 
+    req.flash('sucess', 'Usuario cadastrado com sucesso')
+
+    //e redirecionamos para /login
+    req.session.save( () => { return res.redirect('/login'); });
 }
 
 //exporta resposta para requerimento login/login
 exports.login = async (req, res) => {
-    try{
 
-        //cria novo objeto com a classe importada, enviamos o requerimento
-        const usuario = new Login(req.body)
-        //tenta registrar novo usuario
+    //cria novo objeto com a classe importada, enviamos o requerimento
+    const usuario = new Login(req.body)
 
-        await usuario.login()
+    //verifica se o usuario pode logar
+    await usuario.verificalogin()
 
-        if(usuario.errors.length > 0) {
-            req.flash('errors', usuario.errors)
-            req.session.save( () => { return res.redirect('/login'); });
-        }else{
-            req.flash('sucess', 'Usuario logado com sucesso')
-            req.session.user = usuario.user;
-            req.session.save( () => { return res.redirect('/'); });
-        }
-    }catch (e) {
-        console.log(e);
-        res.render('pages/404.ejs')
+    //se houver erros,  e o erro é salvo na sessão 
+    if(usuario.errors.length > 0) {
+
+        //emite msm de erro 
+        req.flash('errors', usuario.errors)
+    
+        //e redirecionamos para a pagina de login
+        req.session.save( () => { return res.redirect('/login'); });
+        return
+
     }
+    
+    //se não houver nenhum erro, pode ser logado
+    //emitimos msn de sucesso
+    req.flash('sucess', 'Usuario logado com sucesso')
+
+    //eviamos o usuario logado para a sessão
+    req.session.user = usuario.user;
+
+    //e direcionamos para inicial
+    req.session.save( () => { return res.redirect('/'); });
 }
 
 //responsavel por matar a sessão.login
 exports.logout = (req, res) => {
+
+    //desloga o usuario 
     req.session.destroy();
+    
+    //E redireciona para pagina de login
     res.redirect('/login')
 }

@@ -10,6 +10,7 @@ const mongoose = require('mongoose')
 
 //mandando conectar ao banco de dados
 mongoose.connect(process.env.LOGIN, { useNewUrlParser: true, useUnifiedTopology: true })
+
     //A função conect retorna uma processa, logo, quando ela for resolvida, emitimos uma mensagem
     .then(() => {
         app.emit('pronto')
@@ -18,15 +19,19 @@ mongoose.connect(process.env.LOGIN, { useNewUrlParser: true, useUnifiedTopology:
 
 //Importando biblioteca de sessões 
 const session = require('express-session')
+
 //Importando biblioteca que relaciona a conexão das sessões com o mongo, e já relacionando 
 const ConnectMongo = require('connect-mongo')(session)
 
 //criando configurações da sessão
 const sessionOptions = session({
+
     //aleatório
     secret: process.env.SECRET,
+
     //estamos armazenando no mongodb
     store: new ConnectMongo({ mongooseConnection: mongoose.connection }), 
+
     //outras configurações
     resave: false, 
     saveUninitialized: false,
@@ -35,6 +40,7 @@ const sessionOptions = session({
         httpOnly: true
     }
 })
+
 //estamos falando que o servidor vai usar a configuração da sessão criada
 app.use(sessionOptions)
 
@@ -66,10 +72,11 @@ app.use(midllewares.checklogin)
 app.use(routes) 
 
 //usa middlewares de depois
-//app.use(midllewares.check404Error)
+app.use(midllewares.check404Error)
 
 //quando a mensagem for recebida
 app.on('pronto', () => {
+    
     //iniciamos o servidor
     app.listen(3001, () => {
         console.log(`Acessar http://localhost:3001/login`);
