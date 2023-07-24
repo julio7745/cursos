@@ -21,7 +21,8 @@ const eu = [
         sobrenome: 'carvalho'
     }
 ]
-const euJSON = JSON.stringify(eu, '', 2)
+const euJSON = JSON.stringify(eu, ['nome'], 4)
+console.log(euJSON);
 const camihoEuJSON = path.resolve(__dirname, '..', 'textos/eu.json')
 fs.writeFileSync(camihoEuJSON, euJSON, { flag: 'w' }) 
 
