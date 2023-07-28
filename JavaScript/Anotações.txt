@@ -64,10 +64,9 @@ PROGRAMAS:
 		• pm2 stop 'nome do projeto' -------------- Para um projeto.
 		• pm2 logs 'nome do projeto' -------------- Exibe saidas do projeto (O log das execuções é salvo em '\home\seu_usuario\.pm2\logs'. Portanto, lembre-se de apagar o arquivo de log a cada execução caso).
 		• pm2 kill -------------------------------- Para o pm2 e todos os projetos ativos instantaneamente. 
+		
+PACOTES:
 
-
-PACOTES DO NODE
-	
 	PATH:
 		• Importante para trabalhar com diretórios e arquivos e manter organização e compatibilidade em qualquer sistema operacional.
 		• Nativo.
@@ -118,7 +117,7 @@ PACOTES DO NODE
 			.set('views', 'caminho'); --------- Definimos a pasta onde estão os arquivos de renderização HTML(ejs), includes e pages.
 			.set('view engine', 'ejs'); ------- Definimos que a engine que renderiza as paginas é o ejs (veja mais sobre o ejs no PACOTES DO NODE / EJS).
 		• express.Router() ------------------------ Retorna objeto que mapea as rotas dos requerimentos.
-			.get('/url', (req, res, next) => {}) ---- Ao receber o requerimento GET da string '/url' executa a função seguinte.
+			.get('/url', (req, res, next) => {}) --> Ao receber o requerimento GET da string '/url' executa a função seguinte.
 				PARAMETROS NO REQUERIMENTO
 				Em '/url' podemos ter: '/x/:y' --> Isso significa que teremos um requerimento '/x' e o que vier depois é o parametro y (esse parametro 'y' fica disponivel em 'req.params.y').
 					OBS 1: '/x/:y' === parametro obrigatório, só vai executar a função se o parametro for enviado.
@@ -126,7 +125,7 @@ PACOTES DO NODE
 				PARAMETROS NO FIM DA URL
 				Os paramentros de fim de url seguem o seguinte formato: 'requerimento?parametro1=valor1&parametro2=valor2'
 					Estem podem ser acessados no req.query.
-			.post('/url', (req, res, next) => {}) --- Ao receber o requerimento POST da string '/url' executa a função seguinte.
+			.post('/url', (req, res, next) => {}) --> Ao receber o requerimento POST da string '/url' executa a função seguinte.
 				PARAMETROS EM FORMULARIOS
 				São recebidos no req.body.'nome do input no formulario HTML'.
 					OBS 1: precisamos usar no app: 'app.use(express.urllencode({extended:true}))'.
@@ -141,13 +140,21 @@ PACOTES DO NODE
 			OBS 2: Geralmente as funções que serão chamadas são importadas de outros modulos, os CONTROLLERS.
 			OBS 3: 	INFO REQ:	• req = dados do pedido do requerimento.
 				INFO RES:	• res = dados da resposta do requerimento.
-				 		• res.send('texto') --------- Envia o a strig 'texto' como html para a requisição.
+				 		• res.send('texto') --> Envia o a strig 'texto' como html para a requisição.
 	
 	EJS:
 		• Responsavel pela renderização de arquivos html com js.
 		• Não nativo.
 	METODOS
 		• 
+	
+	EXPO-CLI:
+		• Responsavel pela criação da base para projetos de react native.
+		• Responsavel pela simulação de dispositivos moveis.
+		• Responsavel pelo acesso de varias APIs nativas do dispositivo, camera, mic, galeria, notificações, etc.
+	COMANDOS
+		• npx create-expo-app --------------------- Cria base para projeto de React Native
+
 
 				
 ESTUDO DOS MODULOS
