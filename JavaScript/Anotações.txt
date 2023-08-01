@@ -1,6 +1,3 @@
-Preciso passar as anotações do caderno para esse arquivo
-
-
 GERAL __________________________________________________________________________________________________________________________________________________________________
 
 
@@ -11,7 +8,7 @@ FRONT-END ______________________________________________________________________
 
 BACK-END _______________________________________________________________________________________________________________________________________________________________
 
-TERMINAL: 
+Comandos do Sistema: 
 
 	• su 'usuario' ------------------------------------- Loga no usuario determinado.
 	• sudo --------------------------------------------- É utilizado na frente de comandos que necessitem da permissão de administrador.
@@ -65,7 +62,7 @@ PROGRAMAS:
 		• pm2 logs 'nome do projeto' -------------- Exibe saidas do projeto (O log das execuções é salvo em '\home\seu_usuario\.pm2\logs'. Portanto, lembre-se de apagar o arquivo de log a cada execução caso).
 		• pm2 kill -------------------------------- Para o pm2 e todos os projetos ativos instantaneamente. 
 		
-PACOTES:
+PACOTES DO NODE:
 
 	PATH:
 		• Importante para trabalhar com diretórios e arquivos e manter organização e compatibilidade em qualquer sistema operacional.
@@ -114,6 +111,7 @@ PACOTES:
 			.listen(n, 'função'); ------------- Ativa o app na porta 'n' do localhost e executa a função 'função'.
 				OBS 1: Geralmente essa função serve para dar um log dizendo que o servidor foi inicado.
 			.use('alguma coisa'); ------------- Faz com que o app utilize algum processo.
+				.use(express.static('caminho')); --> Definimos as informações estaticas (css, fotos, etc) estão localizadas na pasta do caminho.
 			.set('views', 'caminho'); --------- Definimos a pasta onde estão os arquivos de renderização HTML(ejs), includes e pages.
 			.set('view engine', 'ejs'); ------- Definimos que a engine que renderiza as paginas é o ejs (veja mais sobre o ejs no PACOTES DO NODE / EJS).
 		• express.Router() ------------------------ Retorna objeto que mapea as rotas dos requerimentos.
@@ -147,15 +145,6 @@ PACOTES:
 		• Não nativo.
 	METODOS
 		• 
-	
-	EXPO-CLI:
-		• Responsavel pela criação da base para projetos de react native.
-		• Responsavel pela simulação de dispositivos moveis.
-		• Responsavel pelo acesso de varias APIs nativas do dispositivo, camera, mic, galeria, notificações, etc.
-	COMANDOS
-		• npx create-expo-app --------------------- Cria base para projeto de React Native
-
-
 				
 ESTUDO DOS MODULOS
 
@@ -181,6 +170,17 @@ ESTUDO DOS MODULOS
 			EX: Estamos exportanto o 'y' do 'ARQ1' em 'module.exports.x', e depois armazenando esse 'module.exports.x' (que é o 'y' do 'ARQ1') no 'y' do 'ARQ2':
 				ARQ 1 -->	module.exports.x = y;
 			    	ARQ 2 -->	const y = require('ARQ1').x;
+
+
+REACT ---------------------------------------
+
+O React consiste no js substituir espaços reservados por fragmento de texto JSX (HTML)
+Esse fragmentos são retornados por funções.
+Cada função pode retornar apenas um elemento, nunca mais de um, e por isso usamos a tag vazio (<> </>).
+	ex: return (<><h1></h1><p></p></>)
+COMANDOS
+	• npx create-react-app 'name' -------------------- Cria um projeto de REACT na pasta atual.
+	• npx react-scripts start ------------------------ Inicia o projeto da pasta atual.
 			
 			
 		

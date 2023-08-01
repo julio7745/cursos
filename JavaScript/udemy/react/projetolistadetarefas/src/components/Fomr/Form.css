@@ -1,0 +1,35 @@
+.form{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.form input[type='text']{
+    height: 30px;
+    padding: 0 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+}
+.form button[type='submit']{
+    border: none;
+    background-color: #ffffff00;
+    transform: scale(1.8);
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    height: 10px;
+}
+.save{
+    cursor: pointer;
+}
+.save:hover{
+    color:  #3773b8;
+}
+.alert{
+    display: block;
+    width: 100%;
+    font-size: .9rem;
+    font-weight: 100;
+    color: #b83737;
+    margin: 5px 0 0 3px;
+}

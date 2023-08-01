@@ -1,0 +1,25 @@
+.tarefas{
+    margin: 15px 0px;
+}
+.tarefas li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    list-style-type: disc;
+}
+.icocontainer{
+    display: flex;
+    align-items: center;
+}
+.edit{
+    margin-right: 10px;
+}
+.edit:hover{
+    color:  #3773b8;
+    cursor: pointer;
+}
+.delete:hover{
+    color:  #b83737;
+    cursor: pointer;
+}
