@@ -145,6 +145,7 @@ PACOTES DO NODE:
 		• Não nativo.
 	METODOS
 		• 
+	
 				
 ESTUDO DOS MODULOS
 
@@ -181,6 +182,21 @@ Cada função pode retornar apenas um elemento, nunca mais de um, e por isso usa
 COMANDOS
 	• npx create-react-app 'name' -------------------- Cria um projeto de REACT na pasta atual.
 	• npx react-scripts start ------------------------ Inicia o projeto da pasta atual.
+
+Bibliotecas:
+	react-icons:
+		• Disponibiliza utilização de icones no react.
+		• Veja todos os icones em https://react-icons.github.io/react-icons.
+	METODOS
+		• import {'NomeDoIcone'} from 'react-icons/ "sub-pasta"'.
+			EX: import {MdAssignmentAdd} from 'react-icons/md' --> importamos 'MdAssignmentAdd' da pasta 'md'
+
+
+
+API REST ----------------------------------
+
+
+
 			
 			
 		
