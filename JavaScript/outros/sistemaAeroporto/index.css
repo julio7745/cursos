@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+}
+
+body{
+    width: 100%;
+    text-align: center;
+    background-color: #083b08;
+    color: #ffffff;
+}
+h1{
+    text-shadow: 5px 5px 10px #000000;
+    margin: 20px auto;
+    font-size: 2rem;
+    width: 100%;
+}
+#entradas, #resultados{
+    width: 90vw;
+    margin: 30px;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    position: relative;
+    padding: 30px 20px 30px 20px;
+    text-align: left;
+    color: #000000;
+    background-color: #6ee66e;
+}
+h2{ 
+    width: 150px;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    background-color: #6ee66e;
+    color: #000000;
+    position: absolute;
+    left: 10px;
+    transform: translateY(calc(-50% - 30px));
+    text-align: center;
+    font-size: 1.4rem;
+}
+label{
+    width: 45%;
+}
+input{
+    width: 50px;
+    padding-left: 5px;
+}
+.passageiro{
+    position: relative;
+    width: 380px;
+    margin: 30px 10px 0px 0px;
+    border: 2px solid #054105;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+h3, h4{
+    border: 2px solid #054105;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    transform: translateY(calc(-50% - 20px));
+}
+.mala{
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid #054105;
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 20px;
+}
+h4{
+    border-width: 1px;
+}
+input.pmala{
+    width: 150px;
+}
+#resultados {
+    padding: 20px;
+}
+input.pmala::placeholder {
+    color: #000000;
+}
+.tituloResultado{
+    background: linear-gradient(45deg, #054105 0%, #6ee66e 90%);
+    padding: 5px;
+    font-weight: bolder;
+    color: #ffffff;
+}
+ul{
+    margin: 10px;
+}
+li{
+    margin-top: 5px;
+    list-style: disc inside;
+}
+.bagageiroTitulo{
+    position: relative;
+    transform: translateY(0);
+    margin-left: 10px;
+}
