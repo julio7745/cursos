@@ -1,7 +1,6 @@
 GERAL __________________________________________________________________________________________________________________________________________________________________
 
 
-
 FRONT-END ______________________________________________________________________________________________________________________________________________________________
 
 
@@ -17,6 +16,33 @@ Comandos do Sistema:
 	• mkdir 'caminho' ---------------------------------- Cria o diretório 'caminho'.
 	• sudo apt update ---------------------------------- Atualiza lista de programas disponiveis e suas versões.
 	• sudo apt upgrade --------------------------------- Atualiza programas que possuirem atualização.
+	• rm 'caminho/arquivo.extenção' -------------------- Apaga o arquivo.
+	• mv 'caminhoantigo/arquivo.extenção' '/caminhonovo' Move o arquivo para da primeira para a segunda posição.
+
+ESTUDO DOS MODULOS
+
+	MODULOS:
+		• Os Modulos são arquivos de js.
+
+	COMANDOS
+		• require('modulo') ----------------------- Importa o modulo 'modulo' 
+		• promises >>>>>>>>>>>>>>>>>>>>>>>ATUALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<< (try, catch, async, await, then)
+		• JSON.stringfy('objeto','replace','x') --- Transforma o objeto enviado para string JSON.
+			objeto = objeto a ser transformado.
+			replace = array que contem strings com nome das chaves que devem entrar no JSON.
+			x = string ou numero de espaços que será utilizada no identamento.
+		• JSON.parse('json') ---------------------- Retorna um objeto que equivale a string json 'json'.
+
+	VARIAVEIS
+		• __dirname ------------------------------- Variavel de cada modulo que armazena o caminho do arquivo em execução.
+		• __filename ------------------------------ Variavel de cada modulo que armazena o nome + extenção do arquivo em execução.
+
+	PROPRIEDADES
+		• module.exports / this / exports --------- Representa tudo que esta sendo exportado do módulo (module.exports = exports = this).
+			Podendo representar variaveis, objetos, constantes, funções, etc.
+			EX: Estamos exportanto o 'y' do 'ARQ1' em 'module.exports.x', e depois armazenando esse 'module.exports.x' (que é o 'y' do 'ARQ1') no 'y' do 'ARQ2':
+				ARQ 1 -->	module.exports.x = y;
+			    	ARQ 2 -->	const y = require('ARQ1').x;
 
 
 PROGRAMAS: 
@@ -61,6 +87,46 @@ PROGRAMAS:
 		• pm2 stop 'nome do projeto' -------------- Para um projeto.
 		• pm2 logs 'nome do projeto' -------------- Exibe saidas do projeto (O log das execuções é salvo em '\home\seu_usuario\.pm2\logs'. Portanto, lembre-se de apagar o arquivo de log a cada execução caso).
 		• pm2 kill -------------------------------- Para o pm2 e todos os projetos ativos instantaneamente. 
+
+	DOCKER-CE:
+		• Programa para gerenciar banco de dados e outros.
+		• Funciona como se fosse um subsistema dendo do sistema instalado.
+	COMANDOS
+		• INSALAÇÃO (Executar todos os comandos abaixo)
+			• sudo apt-get remove docker docker-engine docker.io containerd runc -y --> remove versões anteriores.
+			• sudo apt update ------------------------- Atualiza os programas no banco de dados.
+			• sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y --> Instala docker e algumas dependencias.
+			• curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - --> adiciona chave de segurança no docker.
+			• sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y --> adiciona repositório do docker ao pc, isso inclui o mariadb.
+			• sudo apt update ------------------------- Atualiza os programas no banco de dados.
+			• sudo apt install docker-ce docker-ce-cli containerd.io -y --> instalar outras dependencias.
+		• docker ps ------------------------------- Mostra todos os containers em execução.
+			• docker ps -a -------------------- Mostra todos os containers inclusive os parados.
+				Na parte STATUS ----------- Up = em execução, Exited = parado. 
+		• sudo docker stop 'name' ----------------- Para o container de nome 'name'.
+		• sudo docker start 'name' ---------------- Inicia o container de nome 'name'.
+		• sudo docker restart 'name' -------------- Reinicia o container de nome 'name'.
+		• sudo docker rm 'name' ------------------- Apaga o container de nome 'name' (Precisa estar parado).
+		• sudo docker restart 'name' -------------- Reinicia o container de nome 'name'.
+		• sudo docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 'name' --> Mostra o ip do docker com nome 'name'.
+		• sudo docker exec -it 'name' bash -------- Entra no container de nome 'name' (agora é como se voce estivesse em uma maquina diferente).
+		• sudo docker run -d --name 'name' --restart always -e MYSQL_ROOT_PASSWORD='senha' -p 0.0.0.0:3306:3306 mariadb --> Cria um container de banco de dados mariadb chamado 'name' e com senha 'senha'.
+			• ACESSANDO MARIADB NO MYSQL WORKBENCH
+				• LIBERANDO ACESSO DE QUALQUER IP
+					• Precisamos adicionar uma configuração em um arquivo dentro do container, porem a imagem do mariadb não possui editor de texto.
+					• Para Resolver isso:
+						• Copiamos o arquivo para a root: sudo docker cp 'name':/etc/mysql/my.cnf /
+						• Adicionamos a seguinte linha de codigo, abaixo de 'socket = /run/mysqld/mysqld.sock': bind-address = 0.0.0.0
+						• Copiamos o arquivo para o docker: sudo  docker cp /my.cnf myFirstdb:/etc/mysql/
+						• Excluimos o arquivo da raiz: sudo rm /my.cnf
+				 • ACESSANDO
+					• Connection Name: Um nome para sua conexão.
+					• Connection Method: Standard TCP/IP over SSH (já que estamos usando wsl).
+					• SSH Hostname: 127.0.0.1 (já que estamos usando wsl).
+					• SSH Username: Usuario que contem o docker.
+					• SSH Password: Senha do Usuario.
+					• MySQL Hostname: Ip do Container com o MySQL.		
+
 		
 PACOTES DO NODE:
 
@@ -146,33 +212,7 @@ PACOTES DO NODE:
 	METODOS
 		• 
 	
-				
-ESTUDO DOS MODULOS
-
-	MODULOS:
-		• Os Modulos são arquivos de js.
-
-	COMANDOS
-		• require('modulo') ----------------------- Importa o modulo 'modulo' 
-		• promises >>>>>>>>>>>>>>>>>>>>>>>ATUALIZE<<<<<<<<<<<<<<<<<<<<<<<<<<< (try, catch, async, await, then)
-		• JSON.stringfy('objeto','replace','x') --- Transforma o objeto enviado para string JSON.
-			objeto = objeto a ser transformado.
-			replace = array que contem strings com nome das chaves que devem entrar no JSON.
-			x = string ou numero de espaços que será utilizada no identamento.
-		• JSON.parse('json') ---------------------- Retorna um objeto que equivale a string json 'json'.
-
-	VARIAVEIS
-		• __dirname ------------------------------- Variavel de cada modulo que armazena o caminho do arquivo em execução.
-		• __filename ------------------------------ Variavel de cada modulo que armazena o nome + extenção do arquivo em execução.
-
-	PROPRIEDADES
-		• module.exports / this / exports --------- Representa tudo que esta sendo exportado do módulo (module.exports = exports = this).
-			Podendo representar variaveis, objetos, constantes, funções, etc.
-			EX: Estamos exportanto o 'y' do 'ARQ1' em 'module.exports.x', e depois armazenando esse 'module.exports.x' (que é o 'y' do 'ARQ1') no 'y' do 'ARQ2':
-				ARQ 1 -->	module.exports.x = y;
-			    	ARQ 2 -->	const y = require('ARQ1').x;
-
-
+	
 REACT ---------------------------------------
 
 O React consiste no js substituir espaços reservados por fragmento de texto JSX (HTML)
@@ -192,8 +232,6 @@ Bibliotecas:
 			EX: import {MdAssignmentAdd} from 'react-icons/md' --> importamos 'MdAssignmentAdd' da pasta 'md'
 
 
-
-API REST ----------------------------------
 
 
 
