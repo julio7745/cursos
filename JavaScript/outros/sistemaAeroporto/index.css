@@ -6,11 +6,12 @@
     font-size: 1em;
 }
 
-body{
+body, html{
     width: 100%;
     text-align: center;
     background-color: #083b08;
     color: #ffffff;
+    position: relative;
 }
 h1{
     text-shadow: 5px 5px 10px #000000;
@@ -18,9 +19,26 @@ h1{
     font-size: 2rem;
     width: 100%;
 }
+#about, #exit{
+    height: 45px;
+    width: 45px;
+    color: #ffffff;
+    font-size: 2rem;
+    box-shadow: 5px 2px 10px #000000;
+    background: none;
+    font-weight: bolder;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    transition: .5s;
+}
+#about:hover, #exit:hover{
+    background-color: #6ee66e;
+    color: #000000;
+}
 #entradas, #resultados{
-    width: 90vw;
-    margin: 30px;
+    width: 95%;
+    max-width: 1216px;
+    margin: 30px auto  40px auto ;
     border: 3px solid #ffffff;
     border-radius: 10px;
     position: relative;
@@ -29,38 +47,48 @@ h1{
     color: #000000;
     background-color: #6ee66e;
 }
-h2{ 
-    width: 150px;
+body > div h2{ 
+    width: 200px;
+    height: 40px;
     border: 3px solid #ffffff;
     border-radius: 10px;
     background-color: #6ee66e;
     color: #000000;
     position: absolute;
     left: 10px;
-    transform: translateY(calc(-50% - 30px));
+    top: 0px;
+    transform: translateY(calc(-50%));
     text-align: center;
     font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-label{
+.icons1{
+    transform: scale(1.2);
+    margin: 2px 0px 0px 5px;
+}
+body > div label{
     width: 45%;
 }
-input{
+body > div input{
     width: 50px;
     padding-left: 5px;
 }
 .passageiro{
     position: relative;
     width: 380px;
-    margin: 30px 10px 0px 0px;
-    border: 2px solid #054105;
+    margin: 30px 5px 0px 5px;
+    border: 2px solid #083b08;
     border-radius: 5px;
     padding: 10px;
     padding-top: 20px;
     display: inline-block;
     vertical-align: top;
 }
-h3, h4{
-    border: 2px solid #054105;
+body > div h3, body > div h4{
+    
+    border: 2px solid #083b08;
     background-color: #ffffff;
     color: #000000;
     border-radius: 5px;
@@ -72,34 +100,45 @@ h3, h4{
     position: relative;
     width: 100%;
     margin-top: 30px;
-    border: 1px solid #054105;
+    border: 1px solid #083b08;
     border-radius: 5px;
     padding: 10px;
     padding-top: 20px;
 }
-h4{
+body > div h4{
     border-width: 1px;
 }
 input.pmala{
     width: 150px;
 }
-#resultados {
-    padding: 20px;
-}
 input.pmala::placeholder {
     color: #000000;
 }
+#resultados {
+    padding: 20px;
+}
 .tituloResultado{
-    background: linear-gradient(45deg, #054105 0%, #6ee66e 90%);
+    border-radius: 0px;
+    transform: translateY(0);
+    background: linear-gradient(45deg, #083b08 0%, #6ee66e 90%);
     padding: 5px;
     font-weight: bolder;
     color: #ffffff;
+    position: relative;
+    border: none;
+    margin: 15px 0;
 }
-ul{
+body > div h3{
+    display: flex;
+    align-items: center;
+}
+.icons2 {
+    margin-left: 5px;
+}
+body > div ul{
     margin: 10px;
 }
-li{
-    margin-top: 5px;
+body > div li{
     list-style: disc inside;
 }
 .bagageiroTitulo{
@@ -107,3 +146,59 @@ li{
     transform: translateY(0);
     margin-left: 10px;
 }
+aside{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background-color: #083b08;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+aside.hidden{
+    display: none;
+}
+aside h1{
+    text-align: center;
+    margin-top: 0;
+}
+aside h2{
+    display: flex;
+    text-align: left;
+    margin: 30px 0px 20px 30px;
+    font-size: 1.3rem;
+    text-shadow: 3px 3px 5px #000000;
+    
+}
+aside div{
+    max-width: 400px;
+    height: fit-content;
+}
+aside #principal{
+    max-width: 800px;
+}
+aside .figura{
+    margin: 100px 0px 0px 50px;
+    transform: rotate(54deg);
+    display: flex;
+    font-size: 20em;
+    height: fit-content;
+    text-shadow: 10px 10px 3px black;
+}
+aside p{
+    margin: 10px 50px;
+    text-indent: 20px;
+    line-height: 1.3em;
+    text-align: justify;
+}
+aside ul{
+    margin: 10px 50px;
+    line-height: 1.3em;
+}
+aside li{
+    margin-bottom: 10px;
+}
+

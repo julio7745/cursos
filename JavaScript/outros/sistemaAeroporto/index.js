@@ -15,13 +15,11 @@ function handleInputChange(e) {
 
 function atualizaPassageiros(novaQuantidadeDePassageiros) {
 
-    if(novaQuantidadeDePassageiros > 15){
-        novaQuantidadeDePassageiros = 15
-    }
-    if(novaQuantidadeDePassageiros < 1){
-        novaQuantidadeDePassageiros = 1
-    }
-    
+    novaQuantidadeDePassageiros =  novaQuantidadeDePassageiros < 0 ? 0 : novaQuantidadeDePassageiros
+    novaQuantidadeDePassageiros =  novaQuantidadeDePassageiros > 15 ? 15 : novaQuantidadeDePassageiros
+    const inputQuantidadeDePassageiros = document.getElementsByName('quantidadeDePassageiros')[0]; 
+    inputQuantidadeDePassageiros.value = novaQuantidadeDePassageiros
+        
     let antigosPassageiros = document.getElementsByClassName('passageiro')
     const antigaQuantidadeDePassageiros = antigosPassageiros.length
 
@@ -78,13 +76,19 @@ function atualizaPassageiros(novaQuantidadeDePassageiros) {
 function atualizaMalas(inputQuantidadeDeMalas) {
 
     const divPassageiro = inputQuantidadeDeMalas.parentNode;
-    const novaQuantidadeDeMalas = inputQuantidadeDeMalas.value
-    const antigaQuantidadeDeMalas = divPassageiro.getElementsByClassName('mala').length
+    let novaQuantidadeDeMalas = inputQuantidadeDeMalas.value
+    novaQuantidadeDeMalas =  novaQuantidadeDeMalas < 0 ? 0 : novaQuantidadeDeMalas
+    novaQuantidadeDeMalas =  novaQuantidadeDeMalas > 3 ? 3 : novaQuantidadeDeMalas
+    inputQuantidadeDeMalas.value = novaQuantidadeDeMalas
+    let antigaQuantidadeDeMalas = divPassageiro.getElementsByClassName('mala').length
 
-    if (antigaQuantidadeDeMalas < novaQuantidadeDeMalas){
-        addMala(divPassageiro)
-    }else if (antigaQuantidadeDeMalas > novaQuantidadeDeMalas){
-        removeMala(divPassageiro)
+    while(novaQuantidadeDeMalas != antigaQuantidadeDeMalas){
+        antigaQuantidadeDeMalas = divPassageiro.getElementsByClassName('mala').length
+        if (antigaQuantidadeDeMalas < novaQuantidadeDeMalas){
+            addMala(divPassageiro)
+        }else if (antigaQuantidadeDeMalas > novaQuantidadeDeMalas){
+            removeMala(divPassageiro)
+        }
     }
 
     function addMala(divPassageiro) {
@@ -160,8 +164,8 @@ function atualizaSaidas() {
         }
     });
     
-    const tituloRelatorioGeral = document.createElement('ul')
-    tituloRelatorioGeral.textContent = `Relatório Geral`
+    const tituloRelatorioGeral = document.createElement('h3')
+    tituloRelatorioGeral.innerHTML = `Relatório Geral <span class="material-icons icons2"> show_chart </span>`
     tituloRelatorioGeral.classList.add('tituloResultado')
 
     const ulSaida = document.createElement('ul')
@@ -190,13 +194,13 @@ function atualizaSaidas() {
     liNtotalB.textContent = `Número Total de Malas do Bagageiro B: ${MalasB.length}`
     ulSaida.appendChild(liNtotalB)
 
-    const tituloRelatorioEspecifico = document.createElement('ul')
-    tituloRelatorioEspecifico.textContent = `Relatório Especifico`
+    const tituloRelatorioEspecifico = document.createElement('h3')
+    tituloRelatorioEspecifico.innerHTML = `Relatório Especifico <span class="material-icons icons2"> query_stats </span>`
     tituloRelatorioEspecifico.classList.add('tituloResultado')
 
-    const h3A = document.createElement('h3')
-    h3A.textContent = `Bagageiro A - (Peso Total: ${totalPesoA.toFixed(1)})`
-    h3A.classList.add('bagageiroTitulo')
+    const h4A = document.createElement('h4')
+    h4A.textContent = `Bagageiro A - (Peso Total: ${totalPesoA.toFixed(1)})`
+    h4A.classList.add('bagageiroTitulo')
 
     const ulA = document.createElement('ul')
     MalasA.forEach(mala => {
@@ -212,9 +216,9 @@ function atualizaSaidas() {
     });
 
 
-    const h3B = document.createElement('h3')
-    h3B.textContent = `Bagageiro B - (Peso Total: ${totalPesoB.toFixed(1)})`
-    h3B.classList.add('bagageiroTitulo')
+    const h4B = document.createElement('h4')
+    h4B.textContent = `Bagageiro B - (Peso Total: ${totalPesoB.toFixed(1)})`
+    h4B.classList.add('bagageiroTitulo')
 
     const ulB = document.createElement('ul')
     MalasB.forEach(mala => {
@@ -230,13 +234,13 @@ function atualizaSaidas() {
     });
     
     const resultados = document.getElementById('resultados')
-    resultados.innerHTML = '';
+    resultados.innerHTML = '<h2>Resultados <span class="material-icons icons1">bar_chart</span></h2>';
     resultados.appendChild(tituloRelatorioGeral) 
     resultados.appendChild(ulSaida)
     resultados.appendChild(tituloRelatorioEspecifico)
-    resultados.appendChild(h3A)
+    resultados.appendChild(h4A)
     resultados.appendChild(ulA)
-    resultados.appendChild(h3B)
+    resultados.appendChild(h4B)
     resultados.appendChild(ulB)
 
 } 
@@ -250,15 +254,17 @@ window.addEventListener('DOMContentLoaded', function() {
     atualizaSaidas(1)
 });
 
-const inputQuantidadeDePassageiros = document.getElementsByName('quantidadeDePassageiros')[0]; 
-inputQuantidadeDePassageiros.addEventListener('blur', function () {
-
-    if (parseInt(inputQuantidadeDePassageiros.value) > 15) {
-        inputQuantidadeDePassageiros.value = 15;
-    }
-    if (parseInt(inputQuantidadeDePassageiros.value) < 1) {
-        inputQuantidadeDePassageiros.value = 1;
-    }
-});
 
 
+//Menu
+const babout = document.getElementById('about')
+const aside = document.getElementsByTagName('aside')[0]
+
+babout.addEventListener('click', function abreAbout() {
+    aside.classList.toggle('hidden');
+})
+
+const bexit = document.getElementById('exit')
+bexit.addEventListener('click', function fechaAbout() {
+    aside.classList.toggle('hidden');
+})
