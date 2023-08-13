@@ -1,169 +1,175 @@
+:root {
+
+    --tamanhoFonte: 12px;
+
+    --botãoAbout: calc(var(--tamanhoFonte) * 2.45);
+    --iconeTamanho: var(var(--tamanhoFonte))
+  }
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1em;
+    font-size: var(--tamanhoFonte);
 }
-
-body, html{
-    width: 100%;
-    text-align: center;
-    background-color: #083b08;
-    color: #ffffff;
+body{
     position: relative;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #083b08;
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
 }
 h1{
-    text-shadow: 5px 5px 10px #000000;
-    margin: 20px auto;
-    font-size: 2rem;
     width: 100%;
+    margin: auto;
+    font-size: 1.7rem;
+    text-shadow: 5px 5px 10px #000000;
 }
-#about, #exit{
-    height: 45px;
-    width: 45px;
-    color: #ffffff;
-    font-size: 2rem;
+#buttonOpenAbout, #buttonExitAbout{
+    width: var(--botãoAbout) ;
+    height: var(--botãoAbout);
     box-shadow: 5px 2px 10px #000000;
-    background: none;
-    font-weight: bolder;
+    background-color: #083b08;
     border: 3px solid #ffffff;
     border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: center;
+    justify-content: center;
+    color: #ffffff;
     transition: .5s;
 }
-#about:hover, #exit:hover{
+#buttonOpenAbout:hover, #buttonExitAbout:hover{
     background-color: #6ee66e;
     color: #000000;
 }
 #entradas, #resultados{
-    width: 95%;
-    max-width: 1216px;
-    margin: 30px auto  40px auto ;
+    position: relative;
+    width: 90%;
+    max-width: 957px;
+    margin: 20px auto;
+    padding: 20px 10px 10px 10px;
+    background-color: #6ee66e;
     border: 3px solid #ffffff;
     border-radius: 10px;
-    position: relative;
-    padding: 30px 20px 30px 20px;
-    text-align: left;
+    text-align: center;
     color: #000000;
-    background-color: #6ee66e;
 }
 body > div h2{ 
-    width: 200px;
-    height: 40px;
-    border: 3px solid #ffffff;
-    border-radius: 10px;
-    background-color: #6ee66e;
-    color: #000000;
     position: absolute;
     left: 10px;
     top: 0px;
     transform: translateY(calc(-50%));
-    text-align: center;
-    font-size: 1.4rem;
+    width: 140px;
+    border: 3px solid #ffffff;
+    border-radius: 10px;
+    background-color: #6ee66e;
+    font-size: 1.2rem;
+    color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .icons1{
-    transform: scale(1.2);
-    margin: 2px 0px 0px 5px;
+    transform: scale(--iconeTamanho);
+    margin-left: 2px ;
 }
-body > div label{
-    width: 45%;
+#containQuantidadeDePassageiros{
+    text-align: left;
 }
 body > div input{
     width: 50px;
     padding-left: 5px;
+    margin-top: 5px;
 }
 .passageiro{
     position: relative;
-    width: 380px;
-    margin: 30px 5px 0px 5px;
+    width: 95%;
+    max-width: 300px;
+    margin: 20px 5px 0px 5px;
     border: 2px solid #083b08;
     border-radius: 5px;
-    padding: 10px;
-    padding-top: 20px;
+    padding: 20px 10px 10px 10px;
     display: inline-block;
     vertical-align: top;
+    text-align: left;
 }
 body > div h3, body > div h4{
-    
-    border: 2px solid #083b08;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 5px;
-    padding: 5px;
     position: absolute;
+    background-color: #ffffff;
+    padding: 3px;
+    border: 2px solid #083b08;
+    border-radius: 5px;
+    color: #000000;
     transform: translateY(calc(-50% - 20px));
+    display: flex;
+    align-items: center;
 }
 .mala{
     position: relative;
     width: 100%;
-    margin-top: 30px;
-    border: 1px solid #083b08;
-    border-radius: 5px;
+    margin-top: 20px;
     padding: 10px;
     padding-top: 20px;
-}
-body > div h4{
-    border-width: 1px;
+    border: 1px solid #083b08;
+    border-radius: 5px;
 }
 input.pmala{
-    width: 150px;
+    width: 100px;
 }
 input.pmala::placeholder {
     color: #000000;
 }
-#resultados {
-    padding: 20px;
+#resultados{
+    text-align: left;
 }
 .tituloResultado{
+    position: relative;
+    margin: 5px 0;
+    padding: 3px 0px 3px 10px;
     border-radius: 0px;
     transform: translateY(0);
-    background: linear-gradient(45deg, #083b08 0%, #6ee66e 90%);
-    padding: 5px;
+    background: linear-gradient(30deg, #083b08 0%, #6ee66e 70%);
+    border: none;
     font-weight: bolder;
     color: #ffffff;
-    position: relative;
-    border: none;
-    margin: 15px 0;
-}
-body > div h3{
-    display: flex;
-    align-items: center;
 }
 .icons2 {
     margin-left: 5px;
 }
 body > div ul{
-    margin: 10px;
+    margin: 10px 0px 10px 5px;
+    padding-left: 15px;
 }
 body > div li{
-    list-style: disc inside;
+    margin-top: 5px;
 }
 .bagageiroTitulo{
     position: relative;
     transform: translateY(0);
-    margin-left: 10px;
+    margin-top: 10px;
 }
 aside{
+    padding-top: 20px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
     background-color: #083b08;
     text-align: left;
-    display: flex;
     flex-wrap: wrap;
     padding-bottom: 30px;
-}
-aside.hidden{
+    transition: 1s;
+    z-index: 2;
+
     display: none;
+    opacity: 0%;
+
 }
 aside h1{
     text-align: center;
-    margin-top: 0;
 }
 aside h2{
     display: flex;
@@ -201,4 +207,3 @@ aside ul{
 aside li{
     margin-bottom: 10px;
 }
-

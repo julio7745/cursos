@@ -113,7 +113,6 @@ function atualizaMalas(inputQuantidadeDeMalas) {
         inputPesoMala.classList.add('pmala')
         inputPesoMala.type = 'number'
         inputPesoMala.placeholder = '0,0'
-        inputPesoMala.value = '0.0'
         inputPesoMala.min = '0'
         inputPesoMala.step = '0.1'
         inputPesoMala.addEventListener('input', handleInputChange);
@@ -145,7 +144,7 @@ function atualizaSaidas() {
     
     let PesoTotal = 0
     for (let inputPeso = 0; inputPeso < inputsPeso.length; inputPeso++) {
-        PesoTotal += parseFloat(inputsPeso[inputPeso].value);
+        PesoTotal += parseFloat(inputsPeso[inputPeso].value || 0);
     }
 
     let totalPesoA = 0
@@ -156,13 +155,15 @@ function atualizaSaidas() {
     
     arrayComPesos.forEach(chave => {
         if (totalPesoA <= totalPesoB ){
-            totalPesoA += parseFloat(chave.peso)
+            totalPesoA += parseFloat(chave.peso || 0)
             MalasA.push(chave)
         }else{
-            totalPesoB += parseFloat(chave.peso)
+            totalPesoB += parseFloat(chave.peso || 0)
             MalasB.push(chave)
         }
     });
+    totalPesoA = totalPesoA == NaN ? 0 : totalPesoA
+    totalPesoB = totalPesoB == NaN ? 0 : totalPesoB
     
     const tituloRelatorioGeral = document.createElement('h3')
     tituloRelatorioGeral.innerHTML = `Relatório Geral <span class="material-icons icons2"> show_chart </span>`
@@ -255,16 +256,27 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
 //Menu
-const babout = document.getElementById('about')
-const aside = document.getElementsByTagName('aside')[0]
+const buttonOpenAbout = document.getElementById('buttonOpenAbout')
+const buttonExitAbout = document.getElementById('buttonExitAbout')
 
-babout.addEventListener('click', function abreAbout() {
-    aside.classList.toggle('hidden');
+const divConteudo = document.getElementById('divConteudo')
+const divAside = document.getElementsByTagName('aside')[0]
+
+buttonOpenAbout.addEventListener('click', function AbreAbout() {
+    divAside.style.display = 'flex'
+    setTimeout(function () {
+        divAside.style.opacity = '100%'
+    }, 1)
+    setTimeout(function () {
+        divConteudo.style.display = 'none'
+    }, 1000)
 })
 
-const bexit = document.getElementById('exit')
-bexit.addEventListener('click', function fechaAbout() {
-    aside.classList.toggle('hidden');
+buttonExitAbout.addEventListener('click', function fechaAbout() {
+    divConteudo.style.display = 'block'
+    divAside.style.opacity = '0%'
+    setTimeout(function () {
+        divAside.style.display = 'none'
+    }, 700)
 })
