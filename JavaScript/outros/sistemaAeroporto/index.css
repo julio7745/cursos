@@ -33,6 +33,7 @@ body{
     text-align: center;
     align-items: center;
     color: #ffffff;
+    height: 100.1vh;
 }
 h1{
     width: 95%;
@@ -59,6 +60,7 @@ h1{
 span.material-icons{
     display: flex;
     vertical-align: center;
+    justify-content: center;
 }
 #buttonOpenAbout:hover, #buttonExitAbout:hover{
     background-color: #6ee66e;
