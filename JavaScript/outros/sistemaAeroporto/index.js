@@ -257,6 +257,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 //Menu
+
+let ativado = 0;
+
 const buttonOpenAbout = document.getElementById('buttonOpenAbout')
 const buttonExitAbout = document.getElementById('buttonExitAbout')
 
@@ -264,19 +267,28 @@ const divConteudo = document.getElementById('divConteudo')
 const divAside = document.getElementsByTagName('aside')[0]
 
 buttonOpenAbout.addEventListener('click', function AbreAbout() {
-    divAside.style.display = 'flex'
-    setTimeout(function () {
-        divAside.style.opacity = '100%'
-    }, 1)
-    setTimeout(function () {
-        divConteudo.style.display = 'none'
-    }, 1000)
+    if (ativado === 0 ) {
+        ativado = 1
+        divAside.style.display = 'flex'
+        setTimeout(function () {
+            divAside.style.opacity = '100%'
+        }, 1)
+        setTimeout(function () {
+            divConteudo.style.display = 'none'
+            ativado = 0
+        }, 300)   
+    }
 })
 
 buttonExitAbout.addEventListener('click', function fechaAbout() {
-    divConteudo.style.display = 'block'
-    divAside.style.opacity = '0%'
-    setTimeout(function () {
-        divAside.style.display = 'none'
-    }, 700)
+    if (ativado === 0) {
+
+        ativado = 1
+        divConteudo.style.display = 'block'
+        divAside.style.opacity = '0%'
+        setTimeout(function () {
+            divAside.style.display = 'none'
+            ativado = 0
+        }, 300)
+    }
 })
