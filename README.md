@@ -1,2 +1,2 @@
 # Cursos
- HTML/CSS/JS/Excel/Word/PowerBI
+ HTML/CSS/JS/Excel/Word/PowerBI ...
